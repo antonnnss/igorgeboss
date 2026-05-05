@@ -9,6 +9,8 @@ public class Fighter : MonoBehaviour
     public int maxHealth = 100;
     public float attackCooldown = 1.2f;
     public float strongAttackCooldown = 3f;
+    public int attackdamage;
+    public int Strongattackdamage;
 
     [Header("Противник")]
     public Fighter opponent;
@@ -84,7 +86,7 @@ public class Fighter : MonoBehaviour
         if (isDead) return;  //Мёртвый не атакует
         if (opponent.isDead) return;  // Противник мёртв — не атакуем
 
-        int damage = isStrong ? 30 : 15;
+        int damage = isStrong ? Strongattackdamage : attackdamage;
 
         if (isStrong)
             lastStrongAttackTime = Time.time;
@@ -134,7 +136,7 @@ public class Fighter : MonoBehaviour
         if (isDead) return;
 
         isBlocking = true;
-        blockEndTime = Time.time + 0.5f;
+        blockEndTime = Time.time + 1f;
         ShowAction("🛡️  БЛОК!", Color.green);
     }
 

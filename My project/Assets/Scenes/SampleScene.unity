@@ -815,6 +815,8 @@ MonoBehaviour:
   maxHealth: 100
   attackCooldown: 1.2
   strongAttackCooldown: 3
+  attackdamage: 13
+  Strongattackdamage: 26
   opponent: {fileID: 1474275660}
   healthText: {fileID: 2142197208}
   actionText: {fileID: 454742588}
@@ -908,8 +910,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayer: 0
   maxHealth: 100
-  attackCooldown: 1.2
-  strongAttackCooldown: 3
+  attackCooldown: 2
+  strongAttackCooldown: 5
+  attackdamage: 22
+  Strongattackdamage: 54
   opponent: {fileID: 1338423564}
   healthText: {fileID: 1958119846}
   actionText: {fileID: 654852784}
