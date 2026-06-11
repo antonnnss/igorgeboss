@@ -35,7 +35,6 @@ public class GameManager : MonoBehaviour
     public Text enemyHealthText;     // здоровье босса
     public TextMeshProUGUI actionText;          // лог боя
     public TextMeshProUGUI playerActionsText;   // список выбранных действий игрока
-    public TextMeshProUGUI enemyActionsText;    // список действий босса (добавлено!)
     public GameObject planningPanel;            // панель с кнопками и списком – её будем скрывать
     public Button startBattleButton;
     public GameObject gameOverPanel;
@@ -96,9 +95,6 @@ public class GameManager : MonoBehaviour
         // Генерируем действия босса для этого раунда
         GenerateEnemyActions();
 
-        // Отображаем действия босса
-        UpdateEnemyActionsDisplay();
-
         // Обновляем UI выбора
         UpdatePlayerActionsDisplay();
         if (actionText != null) actionText.text = "Выберите свои действия (6 ходов)";
@@ -117,19 +113,6 @@ public class GameManager : MonoBehaviour
             enemyActions.Add("Idle");
         if (enemyActions.Count > actionsPerRound)
             enemyActions = enemyActions.GetRange(0, actionsPerRound);
-
-        Debug.Log("Действия босса: " + string.Join(", ", enemyActions));
-    }
-
-    void UpdateEnemyActionsDisplay()
-    {
-        if (enemyActionsText == null) return;
-        string text = "Действия босса:\n";
-        for (int i = 0; i < enemyActions.Count; i++)
-        {
-            text += $"{i + 1}. {GetRussianActionName(enemyActions[i])}\n";
-        }
-        enemyActionsText.text = text;
     }
 
     // Методы для UI-кнопок
